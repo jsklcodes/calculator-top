@@ -53,6 +53,15 @@ const handleEqualsButton = () => {
   }
 };
 
+const handleClearButton = () => {
+  previousOperand = '';
+  currentOperand = '';
+  operator = '';
+
+  currentOperandDisplay.textContent = '0';
+  currentOperationDisplay.textContent = '';
+};
+
 keyboard.addEventListener('click', event => {
   const buttonContent = event.target.textContent;
   const buttonType =
@@ -72,5 +81,9 @@ keyboard.addEventListener('click', event => {
 
   if (buttonType === 'equals') {
     handleEqualsButton();
+  }
+
+  if (buttonType === 'clear') {
+    handleClearButton();
   }
 });
