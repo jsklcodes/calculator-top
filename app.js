@@ -20,6 +20,11 @@ const operate = (operator, firstOperand, secondOperand) => {
   return operations[operator](Number(firstOperand), Number(secondOperand));
 };
 
+const handleOperandButton = buttonContent => {
+  currentOperand += buttonContent;
+  currentOperandDisplay.textContent = currentOperand;
+};
+
 keyboard.addEventListener('click', event => {
   const buttonContent = event.target.textContent;
   const buttonType =
@@ -27,5 +32,9 @@ keyboard.addEventListener('click', event => {
 
   if (!buttonType) {
     return;
+  }
+
+  if (buttonType === 'operand') {
+    handleOperandButton(buttonContent);
   }
 });
