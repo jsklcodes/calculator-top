@@ -62,6 +62,12 @@ const handleClearButton = () => {
   currentOperationDisplay.textContent = '';
 };
 
+const handleBackspaceButton = () => {
+  currentOperand = String(currentOperand).slice(0, -1);
+
+  currentOperandDisplay.textContent = currentOperand || 0;
+};
+
 keyboard.addEventListener('click', event => {
   const buttonContent = event.target.textContent;
   const buttonType =
@@ -85,5 +91,9 @@ keyboard.addEventListener('click', event => {
 
   if (buttonType === 'clear') {
     handleClearButton();
+  }
+
+  if (currentOperand && buttonType === 'backspace') {
+    handleBackspaceButton();
   }
 });
