@@ -68,6 +68,11 @@ const handleBackspaceButton = () => {
   currentOperandDisplay.textContent = currentOperand || 0;
 };
 
+const handleDecimalButton = buttonContent => {
+  currentOperand += buttonContent;
+  currentOperandDisplay.textContent = currentOperand;
+};
+
 keyboard.addEventListener('click', event => {
   const buttonContent = event.target.textContent;
   const buttonType =
@@ -95,5 +100,9 @@ keyboard.addEventListener('click', event => {
 
   if (currentOperand && buttonType === 'backspace') {
     handleBackspaceButton();
+  }
+
+  if (currentOperand && buttonType === 'decimal') {
+    handleDecimalButton(buttonContent);
   }
 });
