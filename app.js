@@ -19,3 +19,13 @@ const operations = {
 const operate = (operator, firstOperand, secondOperand) => {
   return operations[operator](Number(firstOperand), Number(secondOperand));
 };
+
+keyboard.addEventListener('click', event => {
+  const buttonContent = event.target.textContent;
+  const buttonType =
+    event.target.dataset.type || event.target.parentElement.dataset.type;
+
+  if (!buttonType) {
+    return;
+  }
+});
