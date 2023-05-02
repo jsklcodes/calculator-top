@@ -1,0 +1,105 @@
+:root {
+  --sky-magenta: #d46eb3;
+  --cornflower-blue: #6d80fa;
+  --violets-are-blue: #8465ec;
+  --deep-amethyst: #a6859f;
+  --raisin-black: #212123;
+  --charleston-green: #28282a;
+  --alabaster: #f2f0e5;
+
+  --border-radius: 0.4rem;
+
+  font-size: 62.5%;
+}
+
+*,
+*::after,
+*::before {
+  box-sizing: border-box;
+  padding: 0;
+  margin: 0;
+}
+
+html,
+body {
+  height: 100%;
+}
+
+body {
+  display: grid;
+  place-items: center;
+
+  font-family: -apple-system, BlinkMacSystemFont, avenir next, avenir, segoe ui,
+    helvetica neue, helvetica, Cantarell, Ubuntu, roboto, noto, arial,
+    sans-serif;
+  font-size: 1.8rem;
+
+  background-color: var(--alabaster);
+}
+
+/* calculator */
+.calculator {
+  display: grid;
+  gap: 0.8rem;
+  padding: 0.8rem;
+  background-color: var(--raisin-black);
+  color: var(--alabaster);
+  border-radius: var(--border-radius);
+}
+
+/* display */
+.display {
+  background-color: var(--charleston-green);
+  padding: 2rem;
+  border-radius: var(--border-radius);
+  text-align: end;
+}
+
+.current-operation {
+  min-height: 2.4rem;
+  font-size: 1.4rem;
+}
+
+.current-operand {
+  font-size: 2rem;
+}
+
+/* keyboard */
+.keyboard {
+  display: grid;
+  gap: 0.8rem;
+  grid-template-columns: repeat(4, 1fr);
+}
+
+.keyboard > * {
+  padding: 1.8rem 2.4rem;
+  border: none;
+  border-radius: var(--border-radius);
+  font: inherit;
+  font-weight: 600;
+
+  background-color: var(--deep-amethyst);
+  color: var(--raisin-black);
+  transition: 0.2s ease;
+}
+
+.keyboard > *:hover {
+  transform: scale(0.97);
+  cursor: pointer;
+  transition: 0.2s ease;
+}
+
+[data-type='equals'] {
+  grid-column: 1 / 4;
+  background-color: var(--violets-are-blue);
+}
+
+[data-type='operator'] {
+  background-color: var(--sky-magenta);
+}
+
+[data-type='backspace'],
+[data-type='decimal'],
+[data-type='clear'] {
+  background-color: var(--cornflower-blue);
+}
