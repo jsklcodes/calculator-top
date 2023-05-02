@@ -41,6 +41,18 @@ const handleOperatorButton = buttonContent => {
   currentOperand = '';
 };
 
+const handleEqualsButton = () => {
+  const result = operate(operator, previousOperand, currentOperand);
+
+  if (currentOperand) {
+    currentOperationDisplay.textContent = `${previousOperand} ${operator} ${currentOperand} =`;
+
+    operator = '';
+    currentOperand = result;
+    currentOperandDisplay.textContent = currentOperand;
+  }
+};
+
 keyboard.addEventListener('click', event => {
   const buttonContent = event.target.textContent;
   const buttonType =
@@ -56,5 +68,9 @@ keyboard.addEventListener('click', event => {
 
   if (buttonType === 'operator') {
     handleOperatorButton(buttonContent);
+  }
+
+  if (buttonType === 'equals') {
+    handleEqualsButton();
   }
 });
