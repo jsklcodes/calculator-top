@@ -25,6 +25,22 @@ const handleOperandButton = buttonContent => {
   currentOperandDisplay.textContent = currentOperand;
 };
 
+const handleOperatorButton = buttonContent => {
+  if (operator !== '') {
+    const result = operate(operator, previousOperand, currentOperand);
+
+    currentOperationDisplay.textContent = `${previousOperand} ${operator} ${currentOperand} =`;
+
+    currentOperand = result;
+    currentOperandDisplay.textContent = currentOperand;
+  }
+
+  previousOperand = currentOperand;
+  operator = buttonContent;
+  currentOperationDisplay.textContent = `${currentOperand} ${operator}`;
+  currentOperand = '';
+};
+
 keyboard.addEventListener('click', event => {
   const buttonContent = event.target.textContent;
   const buttonType =
@@ -36,5 +52,9 @@ keyboard.addEventListener('click', event => {
 
   if (buttonType === 'operand') {
     handleOperandButton(buttonContent);
+  }
+
+  if (buttonType === 'operator') {
+    handleOperatorButton(buttonContent);
   }
 });
