@@ -15,3 +15,7 @@ const operations = {
       ? 'Divide by zero? Serious?'
       : firstOperand / secondOperand,
 };
+
+const operate = (operator, firstOperand, secondOperand) => {
+  return operations[operator](Number(firstOperand), Number(secondOperand));
+};
